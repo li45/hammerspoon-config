@@ -65,6 +65,10 @@ hs.hotkey.bind(hyper, 'p', layWindow(1/2,0,1/2,1/2))
 hs.hotkey.bind(hyper, 'n', layWindow(0,1/2,1/2,1/2))
 hs.hotkey.bind(hyper, 'm', layWindow(1/2,1/2,1/2,1/2))
 
+-- lock screen
+hs.hotkey.bind({"ctrl", "cmd"}, 'l', function()
+    hs.caffeinate.lockScreen()
+end)
 
 
 hs.hotkey.bind({"alt"}, "tab", function()
@@ -77,4 +81,3 @@ hs.hotkey.bind({"ctrl"}, "tab", function()
   hs.hints.windowHints(hs.window.focusedWindow():application():allWindows())
 end)
 --======================= for test
-
