@@ -1,15 +1,14 @@
 hyper = {"ctrl", "alt", "cmd"}
 hs.window.animationDuration = 0
-hs.hotkey.bind(hyper, 'r', function() 
-  hs.reload()
-end)
 hs.loadSpoon("BingDaily")
 hs.alert.show("Config loaded")
 
+hs.hotkey.bind(hyper, 'r', function() 
+  hs.reload()
+end)
 
 hs.hotkey.bind(hyper, '[', function() 
   hs.window.frontmostWindow():moveOneScreenWest()
-
 end)
 
 hs.hotkey.bind(hyper, ']', function() 
@@ -36,7 +35,6 @@ hs.hotkey.bind(hyper, ';', function()
 
   w1:setFrame(f2)
   w2:setFrame(f1)
-
 end)
 
 -- set window position and size
