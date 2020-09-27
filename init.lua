@@ -8,11 +8,13 @@ hs.hotkey.bind(hyper, 'r', function()
 end)
 
 hs.hotkey.bind(hyper, '[', function() 
-  hs.window.frontmostWindow():moveOneScreenWest()
+  local win = hs.window.focusedWindow()
+  win:moveToScreen(win:screen():toWest())
 end)
 
 hs.hotkey.bind(hyper, ']', function() 
-  hs.window.frontmostWindow():moveOneScreenEast()
+  local win = hs.window.focusedWindow()
+  win:moveToScreen(win:screen():toEast())
 end)
 
 
