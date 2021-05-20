@@ -1,3 +1,4 @@
+log = hs.logger.new("init", 5)
 hyper = {"ctrl", "alt", "cmd"}
 hs.window.animationDuration = 0
 hs.loadSpoon("BingDaily")
@@ -9,12 +10,29 @@ end)
 
 hs.hotkey.bind(hyper, '[', function() 
   local win = hs.window.focusedWindow()
-  win:moveToScreen(win:screen():toWest())
+  local curScreen = win:screen()
+  local targetScreen = curScreen:toWest()
+
+  local filter = hs.window.filter.new()
+  filter:setScreens({targetScreen:id()})
+  local otherWin = filter:getWindows(hs.window.filter.sortByFocusedLast)[1]
+
+  win:moveToScreen(targetScreen)
+  otherWin:moveToScreen(curScreen)
 end)
 
 hs.hotkey.bind(hyper, ']', function() 
   local win = hs.window.focusedWindow()
-  win:moveToScreen(win:screen():toEast())
+  local curScreen = win:screen()
+  local targetScreen = curScreen:toEast()
+
+  local filter = hs.window.filter.new()
+  filter:setScreens({targetScreen:id()})
+  local otherWin = filter:getWindows(hs.window.filter.sortByFocusedLast)[1]
+
+  win:moveToScreen(targetScreen)
+  otherWin:moveToScreen(curScreen)
+
 end)
 
 
