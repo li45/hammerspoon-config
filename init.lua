@@ -1,5 +1,6 @@
 log = hs.logger.new("init", 5)
 hyper = {"ctrl", "alt", "cmd"}
+hyperNoAlt = {"ctrl", "cmd"}
 hs.window.animationDuration = 0
 hs.loadSpoon("BingDaily")
 hs.alert.show("Config loaded")
@@ -8,7 +9,7 @@ hs.hotkey.bind(hyper, 'r', function()
   hs.reload()
 end)
 
-hs.hotkey.bind(hyper, '[', function() 
+hs.hotkey.bind(hyperNoAlt, '[', function() 
   local win = hs.window.focusedWindow()
   local curScreen = win:screen()
   local targetScreen = curScreen:toWest()
@@ -21,7 +22,7 @@ hs.hotkey.bind(hyper, '[', function()
   otherWin:moveToScreen(curScreen)
 end)
 
-hs.hotkey.bind(hyper, ']', function() 
+hs.hotkey.bind(hyperNoAlt, ']', function() 
   local win = hs.window.focusedWindow()
   local curScreen = win:screen()
   local targetScreen = curScreen:toEast()
@@ -33,6 +34,18 @@ hs.hotkey.bind(hyper, ']', function()
   win:moveToScreen(targetScreen)
   otherWin:moveToScreen(curScreen)
 
+end)
+
+hs.hotkey.bind(hyper, '[', function() 
+  local win = hs.window.focusedWindow()
+  local targetScreen = win:screen():toWest()
+  win:moveToScreen(targetScreen)
+end)
+
+hs.hotkey.bind(hyper, ']', function() 
+  local win = hs.window.focusedWindow()
+  local targetScreen = win:screen():toEast()
+  win:moveToScreen(targetScreen)
 end)
 
 
